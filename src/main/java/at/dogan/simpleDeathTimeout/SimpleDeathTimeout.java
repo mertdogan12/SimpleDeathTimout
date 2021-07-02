@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import at.dogan.simpleDeathTimeout.configs.BanEndConfig;
 import at.dogan.simpleDeathTimeout.configs.Config;
 import at.dogan.simpleDeathTimeout.configs.DeathCountConfig;
 
@@ -23,6 +24,7 @@ public class SimpleDeathTimeout extends JavaPlugin {
         // Config
         Config.loadConfiguration();
         DeathCountConfig.loadConfiguration();
+        BanEndConfig.loadConfiguration();
 
         sender.sendMessage(PREFIX + "§6Plugin enabled");
     }
