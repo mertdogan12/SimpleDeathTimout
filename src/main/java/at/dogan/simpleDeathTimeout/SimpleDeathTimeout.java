@@ -2,11 +2,14 @@ package at.dogan.simpleDeathTimeout;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import at.dogan.simpleDeathTimeout.configs.BanEndConfig;
 import at.dogan.simpleDeathTimeout.configs.Config;
 import at.dogan.simpleDeathTimeout.configs.DeathCountConfig;
+import at.dogan.simpleDeathTimeout.listener.PlayerDeathListener;
+import at.dogan.simpleDeathTimeout.listener.PlayerJoinListener;
 
 /**
  * Plugin main class
@@ -25,6 +28,11 @@ public class SimpleDeathTimeout extends JavaPlugin {
         Config.loadConfiguration();
         DeathCountConfig.loadConfiguration();
         BanEndConfig.loadConfiguration();
+
+        // Listener
+        PluginManager manager = Bukkit.getPluginManager();
+        manager.registerEvents(new PlayerDeathListener(), this);
+        manager.registerEvents(new PlayerJoinListener(), this);
 
         sender.sendMessage(PREFIX + "§6Plugin enabled");
     }

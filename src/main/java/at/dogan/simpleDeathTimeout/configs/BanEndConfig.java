@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import at.dogan.simpleDeathTimeout.SimpleDeathTimeout;
 
@@ -23,7 +24,7 @@ public class BanEndConfig {
      *
      * @param player
      */
-    public static void banPlayer(Player player) {
+    public static void banPlayer(final Player player) {
         config.set(player.getUniqueId().toString(), System.currentTimeMillis() + Config.deathTime * 24 * 60 * 60);
 
         try {
@@ -33,25 +34,34 @@ public class BanEndConfig {
                     SimpleDeathTimeout.PREFIX + "§cError while saveing the ban end config§f: \n" + e.getMessage());
         }
 
-        player.kickPlayer("§cYou can join the server again in "
-                + ((config.getLong(player.getUniqueId().toString()) - System.currentTimeMillis() / 60 / 60 / 24))
-                + " days");
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                player.spigot().respawn();
+            }
+        }.runTaskLater(SimpleDeathTimeout.getPlugin(SimpleDeathTimeout.class), 20L);
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                player.kickPlayer("§cYou can join the server again in 7 days");
+                Bukkit.broadcastMessage("§c" + player.getName() + " can join the Server again in 7 days");
+            }
+        }.runTaskLater(SimpleDeathTimeout.getPlugin(SimpleDeathTimeout.class), 30L);
     }
 
     /**
-     * Unban the player
+     * Gets the time wenn the player gets unbanned
      *
      * @param uuid
      */
-    public static void unbanBan(String uuid) {
-        config.set(uuid, System.currentTimeMillis());
+    public static long unbanTime(String uuid) {
+        if (!config.isSet(uuid))
+            return 0;
 
-        try {
-            config.save(file);
-        } catch (IOException e) {
-            sender.sendMessage(
-                    SimpleDeathTimeout.PREFIX + "§cError while saveing the ban end config§f: \n" + e.getMessage());
-        }
+        long unbanMillisec = config.getLong(uuid) - System.currentTimeMillis();
+
+        return unbanMillisec;
     }
 
     /**

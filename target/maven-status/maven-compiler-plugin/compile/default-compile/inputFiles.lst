@@ -1,2 +1,6 @@
-/home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/Config.java
+/home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/configs/DeathCountConfig.java
+/home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/configs/Config.java
+/home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/listener/PlayerDeathListener.java
+/home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/configs/BanEndConfig.java
+/home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/listener/PlayerJoinListener.java
 /home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/SimpleDeathTimeout.java
