@@ -2,8 +2,6 @@ package at.dogan.simpleDeathTimeout.configs;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
 
 import org.bukkit.Bukkit;
@@ -30,6 +28,7 @@ public class BanEndConfig {
     public static void banPlayer(final Player player) {
         config.set(player.getUniqueId().toString(),
                 System.currentTimeMillis() + TimeUnit.DAYS.toMillis(Config.deathTime));
+        DeathCountConfig.resetDeaths(player.getUniqueId().toString());
 
         try {
             config.save(file);
@@ -54,7 +53,10 @@ public class BanEndConfig {
                 int hours = (int) ((mil / (1000 * 60 * 60)) % 24);
                 int day = (int) (mil / (1000 * 60 * 60 * 24));
 
-                Bukkit.broadcastMessage(String.format("§c%n can join the Server again in %d:%d:%d:%d", player.getName(),
+                player.kickPlayer(String.format("§c%s can join the Server again in %d:%d:%d:%d", player.getName(), day,
+                        hours, min, sec));
+
+                Bukkit.broadcastMessage(String.format("§c%s can join the Server again in %d:%d:%d:%d", player.getName(),
                         day, hours, min, sec));
             }
         }.runTaskLater(SimpleDeathTimeout.getPlugin(SimpleDeathTimeout.class), 30L);
