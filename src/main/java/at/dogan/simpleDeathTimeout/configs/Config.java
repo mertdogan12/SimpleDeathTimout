@@ -1,4 +1,4 @@
-package at.dogan.simpleDeathTimeout;
+package at.dogan.simpleDeathTimeout.configs;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,6 +6,8 @@ import java.io.IOException;
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
+
+import at.dogan.simpleDeathTimeout.SimpleDeathTimeout;
 
 /**
  * Loads the config file
