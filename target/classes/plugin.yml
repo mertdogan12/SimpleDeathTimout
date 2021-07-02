@@ -1,4 +1,4 @@
-main: at.dogan.simpleDeathTimout.SimpleDeathTimeout
+main: at.dogan.simpleDeathTimeout.SimpleDeathTimeout
 author: Mert Dogan
 version: 1.0
 name: SimpleDeathTimeout

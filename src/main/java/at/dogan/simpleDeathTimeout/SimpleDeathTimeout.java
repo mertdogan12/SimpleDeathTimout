@@ -17,6 +17,9 @@ public class SimpleDeathTimeout extends JavaPlugin {
     public void onEnable() {
         ConsoleCommandSender sender = Bukkit.getConsoleSender();
 
+        // Config
+        Config.loadConfiguration();
+
         sender.sendMessage(PREFIX + "§6Plugin enabled");
     }
 }
