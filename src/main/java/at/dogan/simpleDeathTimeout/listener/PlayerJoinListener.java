@@ -16,11 +16,13 @@ public class PlayerJoinListener implements Listener {
         long unbanTime = BanEndConfig.unbanTime(uuid);
 
         if (unbanTime > 0) {
-            int days = (int) unbanTime / 60 / 60 / 24;
-            int hour = (int) unbanTime / 60 / 60 - days * 24;
-            int sec = (int) unbanTime / 60 - hour * 60;
+            int sec = (int) (unbanTime / 1000) % 60;
+            int min = (int) ((unbanTime / (1000 * 60)) % 60);
+            int hours = (int) ((unbanTime / (1000 * 60 * 60)) % 24);
+            int days = (int) (unbanTime / (1000 * 60 * 60 * 24));
 
-            player.kickPlayer(String.format("§cYou can join the server again in %d:%h:%s", days, hour, sec));
+            player.kickPlayer(String.format("§c%s can join the Server again in %d:%d:%d:%d", player.getName(), days,
+                    hours, min, sec));
         }
     }
 }
