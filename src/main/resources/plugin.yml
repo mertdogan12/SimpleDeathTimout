@@ -5,3 +5,4 @@ name: SimpleDeathTimeout
 website: https://github.com/mertdogan12/SimpleDeathTimout/
 commands:
   sdt:
+    description: Setting for the SimpleDeathTimout plugin

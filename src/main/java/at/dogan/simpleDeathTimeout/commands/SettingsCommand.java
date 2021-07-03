@@ -34,6 +34,7 @@ public class SettingsCommand implements CommandExecutor, TabCompleter {
             @Override
             public void run() {
                 UUID uuid = PlayerUUID.getUUID(args[0]);
+
                 if (uuid == null) {
                     sender.sendMessage(SimpleDeathTimeout.PREFIX + "§cPlayer does not exist");
                     return;
