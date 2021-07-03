@@ -6,6 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 import at.dogan.simpleDeathTimeout.configs.BanEndConfig;
+import at.dogan.simpleDeathTimeout.configs.Config;
 import at.dogan.simpleDeathTimeout.configs.DeathCountConfig;
 
 public class PlayerDeathListener implements Listener {
@@ -16,7 +17,7 @@ public class PlayerDeathListener implements Listener {
 
         DeathCountConfig.addDeath(uuid);
 
-        if (DeathCountConfig.getDeaths(uuid) > 2) {
+        if (DeathCountConfig.getDeaths(uuid) >= Config.lifes) {
             BanEndConfig.banPlayer(player);
         }
     }

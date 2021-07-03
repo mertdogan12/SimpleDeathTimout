@@ -21,7 +21,7 @@ public class BanEndConfig {
     private static ConsoleCommandSender sender = Bukkit.getConsoleSender();
 
     /**
-     * Bans the player for x days
+     * Bans the player for x days. x can be definded in the config.
      *
      * @param player
      */
@@ -60,6 +60,22 @@ public class BanEndConfig {
                         day, hours, min, sec));
             }
         }.runTaskLater(SimpleDeathTimeout.getPlugin(SimpleDeathTimeout.class), 30L);
+    }
+
+    /**
+     * Unbans an player
+     *
+     * @param uuid
+     */
+    public static void unbanPlayer(String uuid) {
+        config.set(uuid, 0);
+
+        try {
+            config.save(file);
+        } catch (IOException e) {
+            sender.sendMessage(
+                    SimpleDeathTimeout.PREFIX + "§cError while saveing the ban end config§f: \n" + e.getMessage());
+        }
     }
 
     /**

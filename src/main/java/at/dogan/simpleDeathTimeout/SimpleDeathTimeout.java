@@ -5,6 +5,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import at.dogan.simpleDeathTimeout.commands.SettingsCommand;
 import at.dogan.simpleDeathTimeout.configs.BanEndConfig;
 import at.dogan.simpleDeathTimeout.configs.Config;
 import at.dogan.simpleDeathTimeout.configs.DeathCountConfig;
@@ -33,6 +34,9 @@ public class SimpleDeathTimeout extends JavaPlugin {
         PluginManager manager = Bukkit.getPluginManager();
         manager.registerEvents(new PlayerDeathListener(), this);
         manager.registerEvents(new PlayerJoinListener(), this);
+
+        // Commands
+        this.getCommand("sdt").setExecutor(new SettingsCommand());
 
         sender.sendMessage(PREFIX + "§6Plugin enabled");
     }

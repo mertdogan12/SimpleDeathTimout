@@ -3,4 +3,7 @@
 /home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/listener/PlayerDeathListener.java
 /home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/configs/BanEndConfig.java
 /home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/listener/PlayerJoinListener.java
+/home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/uuid/PlayerUUID.java
+/home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/commands/SettingsCommand.java
 /home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/SimpleDeathTimeout.java
+/home/mert/minecraft/simpleDeathTimeout/src/main/java/at/dogan/simpleDeathTimeout/uuid/ResponseJson.java
