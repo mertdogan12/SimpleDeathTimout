@@ -2,5 +2,6 @@ main: at.dogan.simpleDeathTimeout.SimpleDeathTimeout
 author: Mert Dogan
 version: 1.0
 name: SimpleDeathTimeout
+website: https://github.com/mertdogan12/SimpleDeathTimout/
 commands:
   sdt:
