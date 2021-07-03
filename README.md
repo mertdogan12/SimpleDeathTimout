@@ -6,4 +6,8 @@ Spigot Plugin. Banns you after x death for x days.
   - Permission for the sdt command
   
 ## Commands
-Look --> [plugin.yml](src/main/resources/plugin.yml)
+- sdt
+  - Setting for the SimpleDeathTimout plugin
+  - arguments (in right order)
+    - playername
+    - resetDeaths/unban 
